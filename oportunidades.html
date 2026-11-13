@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<!--
+  =====================================================================
+  ARQUIVO: oportunidades.html
+  PROJETO: Conecta Jovem
+  FUNÇÃO: Página que lista as oportunidades (primeiro emprego, jovem
+          aprendiz, cursos), mostra o passo a passo para conseguir
+          uma vaga e apresenta dicas para o primeiro emprego.
+  =====================================================================
+-->
+
+<html lang="pt-BR">
+<head>
+    <!-- Metadados: codificação, viewport, descrição e título da aba -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Oportunidades de primeiro emprego, Jovem Aprendiz, cursos gratuitos e dicas para conquistar sua primeira vaga.">
+
+    <!-- Título com letra maiúscula no nome da página (requisito do professor) -->
+    <title>Conecta Jovem | Oportunidades</title>
+
+    <!-- Folha de estilos compartilhada com a página inicial -->
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+
+<body>
+
+    <!-- Atalho de acessibilidade (mesma lógica do index.html) -->
+    <a href="#conteudo" class="pular-link">Pular para o conteúdo</a>
+
+
+    <!-- ============================================================
+         CABEÇALHO — idêntico ao do index.html para manter
+         a navegação consistente entre as páginas.
+         ============================================================ -->
+    <header class="cabecalho">
+        <a href="index.html" class="logo" aria-label="Conecta Jovem - Página inicial">
+            Conecta <span>Jovem</span>
+        </a>
+
+        <button
+            class="menu-toggle"
+            aria-label="Abrir menu"
+            aria-expanded="false"
+            aria-controls="menu">
+            ☰
+        </button>
+
+        <nav class="menu" id="menu" aria-label="Menu principal">
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <!-- Página atual marcada com "ativo" -->
+                <li><a href="oportunidades.html" class="ativo">Oportunidades</a></li>
+                <li><a href="index.html#dicas">Dicas</a></li>
+                <li><a href="index.html#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <!-- ============================================================
+         CONTEÚDO PRINCIPAL
+         ============================================================ -->
+    <main id="conteudo">
+
+        <!-- ---------- APRESENTAÇÃO ---------- -->
+        <section class="hero">
+            <h1>Conecta Jovem</h1>
+            <h2>Conectando jovens a oportunidades que transformam vidas</h2>
+            <p>
+                O Conecta Jovem reúne informações sobre <strong>primeiro emprego</strong>,
+                programas <em>Jovem Aprendiz</em>, cursos gratuitos e projetos sociais.
+            </p>
+            <p><strong><em>Seu futuro começa com uma oportunidade!</em></strong></p>
+        </section>
+
+
+        <!-- ---------- SEÇÃO: CATEGORIAS DE OPORTUNIDADES ----------
+             Cada categoria é explicada com <h3> + <p>. -->
+        <section>
+            <h2>Oportunidades para você!</h2>
+
+            <h3>Primeiro Emprego</h3>
+            <p>
+                Vagas destinadas a jovens que estão buscando a primeira experiência profissional,
+                com apoio e aprendizado dentro da empresa.
+            </p>
+
+            <h3>Jovem Aprendiz</h3>
+            <p>
+                Programa que combina trabalho e estudo, permitindo que o jovem aprenda uma profissão
+                enquanto recebe salário e benefícios.
+            </p>
+
+            <h3>Cursos Profissionalizantes</h3>
+            <p>
+                Cursos gratuitos e profissionalizantes para desenvolver habilidades práticas,
+                como informática, atendimento ao cliente e empreendedorismo.
+            </p>
+        </section>
+
+
+        <!-- ---------- SEÇÃO: LISTAS ----------
+             Aqui usamos as duas listas pedidas pelo professor:
+             <ul> (não ordenada) e <ol> (ordenada / passo a passo). -->
+        <section>
+            <h2>Lista de oportunidades disponíveis</h2>
+
+            <!--
+              Campo de busca (opcional): filtra os itens da lista
+              em tempo real usando JavaScript (ver script.js).
+            -->
+            <input
+                type="search"
+                id="busca"
+                placeholder="Buscar oportunidade..."
+                aria-label="Buscar oportunidade">
+
+            <!-- Lista NÃO ordenada: itens não têm ordem/prioridade -->
+            <ul id="lista-oportunidades">
+                <li>Vagas de primeiro emprego</li>
+                <li>Programa Jovem Aprendiz</li>
+                <li>Cursos gratuitos de informática</li>
+                <li>Oficinas de empreendedorismo</li>
+                <li>Capacitação profissional</li>
+            </ul>
+
+            <h2>Como começar a procurar uma oportunidade?</h2>
+
+            <!-- Lista ORDENADA: a ordem das etapas importa -->
+            <ol>
+                <li>Identificar sua área de interesse</li>
+                <li>Procurar oportunidades disponíveis</li>
+                <li>Preparar seu currículo</li>
+                <li>Realizar sua inscrição</li>
+                <li>Acompanhar o processo seletivo</li>
+            </ol>
+        </section>
+
+
+        <!-- ---------- IMAGEM ILUSTRATIVA ----------
+             <figure> agrupa imagem + legenda semânticas.
+             O caminho "img/oportunidades.jpg" indica que a imagem
+             está guardada dentro da pasta img do projeto. -->
+        <figure class="imagem-destaque">
+            <img src="img/oportunidades.jpg" alt="Jovens estudando e buscando oportunidades de emprego e cursos">
+            <figcaption>Jovens em busca de um futuro melhor através do Conecta Jovem.</figcaption>
+        </figure>
+
+
+        <!-- ---------- DESAFIO COMPLEMENTAR: DICAS ----------
+             Três dicas pedidas pelo professor, cada uma com
+             seu próprio <h3> e <p>. -->
+        <section>
+            <h2>Dicas para conquistar seu primeiro emprego!</h2>
+
+            <h3>1. Como elaborar um currículo</h3>
+            <p>
+                Mantenha seu currículo simples, com seus dados, objetivos, escolaridade e cursos.
+                Mesmo sem experiência, mostre sua vontade de aprender.
+            </p>
+
+            <h3>2. Como se comportar em uma entrevista</h3>
+            <p>
+                Seja educado, olhe nos olhos, fale com clareza e mostre interesse pela vaga.
+                Chegue preparado para falar sobre você.
+            </p>
+
+            <h3>3. A importância da pontualidade</h3>
+            <p>
+                Chegar no horário mostra responsabilidade e respeito. Saia de casa com antecedência
+                para não se atrasar no dia da entrevista ou do trabalho.
+            </p>
+        </section>
+
+    </main>
+
+
+    <!-- ---------- RODAPÉ ---------- -->
+    <footer class="rodape">
+        <p>© <span id="ano"></span> Conecta Jovem — Projeto educacional.</p>
+        <p>
+            <a href="https://www.senac.br" target="_blank" rel="noopener">Senac</a> ·
+            <a href="index.html">Voltar ao início</a>
+        </p>
+    </footer>
+
+
+    <!-- Botão flutuante "voltar ao topo" (controlado por JS) -->
+    <button id="voltar-topo" class="voltar-topo" aria-label="Voltar ao topo">↑</button>
+
+
+    <!-- Script principal (menu, ano, scroll, validação, busca) -->
+    <script src="js/script.js"></script>
+
+</body>
+</html>

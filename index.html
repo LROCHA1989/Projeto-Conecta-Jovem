@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<!--
+  =====================================================================
+  ARQUIVO: index.html
+  PROJETO: Conecta Jovem
+  FUNÇÃO: Página inicial da plataforma. Apresenta o projeto ao usuário,
+          mostra as oficinas disponíveis, dicas de emprego e um
+          formulário para o jovem receber novidades por e-mail.
+  =====================================================================
+-->
+
+<html lang="pt-BR">
+<head>
+    <!-- ============================================================
+         BLOCO <head>
+         Contém informações que NÃO aparecem no corpo da página:
+         codificação de caracteres, configurações de viewport,
+         título da aba, descrição para mecanismos de busca e
+         o link para a folha de estilos CSS.
+         ============================================================ -->
+
+    <!-- Define a codificação UTF-8: permite acentos e cedilha (á, ç, ã...) -->
+    <meta charset="UTF-8">
+
+    <!-- Faz a página se adaptar ao tamanho da tela do celular/tablet -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Descrição usada por buscadores (SEO) ao listar o site -->
+    <meta name="description" content="Conecta Jovem: plataforma que conecta jovens a oportunidades de emprego, cursos, oficinas e projetos sociais.">
+
+    <!-- Título exibido na ABA do navegador -->
+    <title>Conecta Jovem | Início</title>
+
+    <!-- Importa o arquivo de estilo externo (mantém o HTML "limpo") -->
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+
+<body>
+
+    <!-- ============================================================
+         LINK DE ACESSIBILIDADE
+         Permite que usuários de leitor de tela "pulem" o menu e
+         vão direto ao conteúdo. Fica escondido até receber foco (Tab).
+         ============================================================ -->
+    <a href="#conteudo" class="pular-link">Pular para o conteúdo</a>
+
+
+    <!-- ============================================================
+         CABEÇALHO (<header>)
+         Contém a logo clicável + botão hamburguer (mobile) + menu
+         de navegação principal. O menu é o mesmo em todas as páginas.
+         ============================================================ -->
+    <header class="cabecalho">
+
+        <!-- Logo em texto: "Conecta" (branco) + "Jovem" (laranja via CSS) -->
+        <a href="index.html" class="logo" aria-label="Conecta Jovem - Página inicial">
+            Conecta <span>Jovem</span>
+        </a>
+
+        <!-- Botão hamburguer: só aparece em telas pequenas (via CSS).
+             aria-expanded informa ao leitor de tela se o menu está aberto. -->
+        <button
+            class="menu-toggle"
+            aria-label="Abrir menu"
+            aria-expanded="false"
+            aria-controls="menu">
+            ☰
+        </button>
+
+        <!-- Menu de navegação principal -->
+        <nav class="menu" id="menu" aria-label="Menu principal">
+            <ul>
+                <!-- A classe "ativo" marca a página atual -->
+                <li><a href="index.html" class="ativo">Início</a></li>
+                <li><a href="oportunidades.html">Oportunidades</a></li>
+                <li><a href="#oficinas">Oficinas</a></li>
+                <li><a href="#dicas">Dicas</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <!-- ============================================================
+         CONTEÚDO PRINCIPAL (<main>)
+         Tudo o que é específico desta página fica aqui dentro.
+         ============================================================ -->
+    <main id="conteudo">
+
+        <!-- ---------- SEÇÃO HERO (boas-vindas) ---------- -->
+        <section class="hero">
+            <h1>Conecta Jovem</h1>
+            <p class="subtitulo">Conectando jovens a oportunidades que transformam vidas.</p>
+
+            <p>
+                Encontre <strong>oficinas gratuitas</strong>, cursos, vagas de primeiro emprego
+                e projetos sociais para impulsionar seu futuro.
+            </p>
+
+            <!-- Frase de destaque usando <em> (ênfase semântica) -->
+            <p><em>Seu futuro começa com uma oportunidade!</em></p>
+
+            <!-- Botão de chamada para ação: leva à página de oportunidades -->
+            <a href="oportunidades.html" class="botao">Ver oportunidades</a>
+        </section>
+
+
+        <!-- ---------- SEÇÃO OFICINAS ---------- -->
+        <section id="oficinas">
+            <h2>Oficinas disponíveis</h2>
+
+            <!--
+              A classe "cards" (CSS) organiza os <article> em grade
+              responsiva. Cada article é uma oficina independente.
+            -->
+            <div class="cards">
+
+                <article class="card">
+                    <h3>Programação</h3>
+                    <p>Aprenda HTML, CSS e JavaScript criando seus primeiros projetos web.</p>
+                </article>
+
+                <article class="card">
+                    <h3>Design</h3>
+                    <p>Explore cores, tipografia e layout para criar interfaces bonitas.</p>
+                </article>
+
+                <article class="card">
+                    <h3>Robótica</h3>
+                    <p>Monte robôs, programe sensores e descubra a tecnologia na prática.</p>
+                </article>
+
+            </div>
+        </section>
+
+
+        <!-- ---------- IMAGEM ILUSTRATIVA ----------
+             <figure> agrupa a imagem com sua legenda (<figcaption>).
+             O atributo alt descreve a imagem para leitores de tela. -->
+        <figure class="imagem-destaque">
+            <img src="img/images.jpg" alt="Computador preparado para uma oficina de programação web">
+            <figcaption>Oficina de programação web no Conecta Jovem</figcaption>
+        </figure>
+
+
+        <!-- ---------- SEÇÃO DICAS ---------- -->
+        <section id="dicas">
+            <h2>Dicas para conquistar seu primeiro emprego</h2>
+
+            <article>
+                <h3>Como elaborar um currículo</h3>
+                <p>Seja objetivo: dados pessoais, objetivos, escolaridade e cursos. Sem experiência? Destaque sua vontade de aprender.</p>
+            </article>
+
+            <article>
+                <h3>Como se comportar em uma entrevista</h3>
+                <p>Chegue no horário, seja educado, olhe nos olhos e mostre interesse pela vaga.</p>
+            </article>
+
+            <article>
+                <h3>A importância da pontualidade</h3>
+                <p>Chegar no horário demonstra responsabilidade. Saia de casa com antecedência.</p>
+            </article>
+        </section>
+
+
+        <!-- ---------- SEÇÃO CONTATO / NEWSLETTER ----------
+             O atributo "novalidate" desativa a validação automática do
+             navegador. Assim o JavaScript pode mostrar mensagens
+             personalizadas com o estilo do site. -->
+        <section id="contato" class="contato">
+            <h2>Receba novidades</h2>
+            <p>Cadastre seu e-mail e receba novas oportunidades em primeira mão.</p>
+
+            <form id="form-newsletter" novalidate>
+                <!-- Label vinculado ao input pelo "for"/"id" (acessibilidade) -->
+                <label for="email">Seu e-mail</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="voce@email.com"
+                    required>
+
+                <button type="submit" class="botao">Quero receber</button>
+
+                <!--
+                  Parágrafo vazio usado pelo JavaScript para mostrar
+                  mensagens de erro ou sucesso.
+                  role="status" e aria-live="polite" avisam o leitor
+                  de tela quando o texto muda.
+                -->
+                <p class="mensagem" role="status" aria-live="polite"></p>
+            </form>
+        </section>
+
+    </main>
+
+
+    <!-- ============================================================
+         RODAPÉ (<footer>)
+         Informações de copyright e links úteis.
+         O ano é preenchido automaticamente pelo JavaScript.
+         ============================================================ -->
+    <footer class="rodape">
+        <p>© <span id="ano"></span> Conecta Jovem — Projeto educacional.</p>
+        <p>
+            <a href="https://www.senac.br" target="_blank" rel="noopener">Senac</a> ·
+            <a href="oportunidades.html">Oportunidades</a>
+        </p>
+    </footer>
+
+
+    <!-- ============================================================
+         BOTÃO "VOLTAR AO TOPO"
+         Fica invisível até o usuário rolar a página (controlado via JS).
+         ============================================================ -->
+    <button id="voltar-topo" class="voltar-topo" aria-label="Voltar ao topo">↑</button>
+
+
+    <!-- ============================================================
+         SCRIPT PRINCIPAL
+         Colocado no fim do <body> para garantir que todo o HTML
+         já tenha sido carregado antes do JavaScript rodar.
+         ============================================================ -->
+    <script src="js/script.js"></script>
+
+</body>
+</html>
