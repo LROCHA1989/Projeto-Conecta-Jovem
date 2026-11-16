@@ -160,28 +160,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnFechar = document.getElementById('fechar-video');
     const iframe = document.getElementById('video-youtube');
 
-    // O link convertido para formato "embed" para tocar dentro do site
-    // O "autoplay=1" faz o vídeo tocar sozinho ao abrir
+    // Link do YouTube convertido para embed e começando no segundo 11
     const videoURL = "https://www.youtube.com/embed/naUTmMmS6gk?start=01&autoplay=1";
 
     if (btnAbrir && modal) {
-        // Abrir o vídeo
+        // Quando clica em "Assistir ao vídeo"
         btnAbrir.addEventListener('click', (e) => {
-            e.preventDefault(); // Impede a página de subir para o topo
-            iframe.src = videoURL; // Coloca o link no iframe
-            modal.classList.add('ativo'); // Mostra o modal
+            e.preventDefault(); // Impede o link de subir a página
+            iframe.src = videoURL; // Injeta o link do vídeo
+            modal.classList.add('ativo'); // Mostra a janela escura
         });
 
-        // Função para fechar o vídeo
+        // Função para fechar e parar o vídeo
         const fecharModal = () => {
-            modal.classList.remove('ativo'); // Esconde o modal
-            iframe.src = ""; // Limpa o link, fazendo o vídeo parar de tocar
+            modal.classList.remove('ativo'); 
+            iframe.src = ""; // Limpa o link para o som parar
         };
 
         // Fechar no botão X
         btnFechar.addEventListener('click', fecharModal);
 
-        // Fechar ao clicar no fundo escuro (fora do vídeo)
+        // Fechar ao clicar no fundo escuro
         modal.addEventListener('click', (e) => {
             if (e.target === modal) {
                 fecharModal();
