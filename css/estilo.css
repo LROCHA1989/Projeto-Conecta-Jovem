@@ -28,7 +28,6 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 15px 50px;
-    /* O cabeçalho volta ao normal, sem precisar de z-index */
 }
 
 .logo { display: flex; align-items: center; gap: 10px; }
@@ -72,11 +71,11 @@ body {
 /* SEÇÃO HERO */
 .hero {
     display: flex;
-    align-items: stretch; /* Alinha as alturas das colunas */
+    align-items: stretch;
     background-color: #f4f7fb;
     padding-left: 50px;
     min-height: 500px;
-    overflow: hidden; /* Impede que a imagem vaze para fora da seção */
+    overflow: hidden;
 }
 
 .hero-texto { flex: 1; padding: 40px 20px 40px 0; }
@@ -108,7 +107,9 @@ body {
     align-items: center;
     gap: 8px;
     transition: 0.3s;
+    cursor: pointer;
 }
+.btn-transparente:hover { border-color: var(--azul); color: var(--azul); }
 
 .hero-detalhes { display: flex; gap: 30px; }
 .hero-detalhes span {
@@ -121,21 +122,17 @@ body {
     line-height: 1.3;
 }
 
-/* CONTAINER DA IMAGEM */
 .hero-imagem {
     flex: 1.2;
     position: relative;
     height: auto;
-    /* Sem margin-top negativo e sem z-index alto */
 }
 
 .hero-imagem img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* Alinha a imagem ao centro-topo para não cortar o cabelo do rapaz */
     object-position: center top; 
-    /* Aqui está o segredo da curva perfeita sem cortar as pontas */
     clip-path: ellipse(100% 100% at 100% 50%); 
 }
 
@@ -161,13 +158,8 @@ body {
     flex-direction: column;
 }
 
-/* Força a cor azul exata nos dois cards */
-.card-azul { 
-    background-color: #003c7d !important; 
-}
-.card-laranja { 
-    background-color: #f39200 !important; 
-}
+.card-azul { background-color: #003c7d !important; }
+.card-laranja { background-color: #f39200 !important; }
 
 .card-img { height: 180px; width: 100%; }
 .card-img img { width: 100%; height: 100%; object-fit: cover; }
@@ -184,12 +176,8 @@ body {
     justify-content: center;
     border: 4px solid white;
 }
-.card-azul .icone-circulo { 
-    background-color: #003c7d !important; 
-}
-.card-laranja .icone-circulo { 
-    background-color: #f39200 !important; 
-}
+.card-azul .icone-circulo { background-color: #003c7d !important; }
+.card-laranja .icone-circulo { background-color: #f39200 !important; }
 
 .card-info { padding: 40px 30px 30px 30px; color: white; }
 .card-info h3 { font-size: 1.4rem; margin-bottom: 10px; font-weight: 700; }
@@ -206,6 +194,7 @@ body {
     font-weight: 700;
     font-size: 0.9rem;
     transition: 0.3s;
+    width: fit-content;
 }
 .card-azul .btn-card { color: #003c7d; }
 .card-laranja .btn-card { color: #f39200; }
@@ -226,114 +215,91 @@ body {
 .vantagem p { font-size: 0.8rem; color: #666; }
 
 /* =========================================
-   RESPONSIVIDADE (TABLET E CELULAR)
+   ESTILOS DO MODAL DE VÍDEO
    ========================================= */
-
-/* Para tablets e celulares grandes */
-@media (max-width: 900px) {
-    /* CABEÇALHO */
-    .topo {
-        flex-direction: column;
-        padding: 15px;
-        gap: 15px;
-    }
-
-    /* MENU */
-    .menu {
-        flex-wrap: wrap; /* Permite que os itens do menu desçam de linha */
-        justify-content: center;
-        gap: 10px;
-    }
-
-    .menu a {
-        margin: 0 5px;
-        font-size: 0.9rem;
-    }
-
-    .acoes-topo {
-        width: 100%;
-        justify-content: center;
-        margin-top: 5px;
-    }
-
-    /* SEÇÃO HERO (TOPO) */
-    .hero {
-        flex-direction: column;
-        padding: 30px 20px;
-        text-align: center;
-    }
-
-    .hero-texto {
-        padding: 0 0 30px 0;
-    }
-
-    .hero-texto h1 {
-        font-size: 2.8rem;
-    }
-
-    .hero-botoes {
-        flex-direction: column; /* Coloca os botões um embaixo do outro */
-        align-items: center;
-        width: 100%;
-        gap: 15px;
-    }
-
-    .btn-laranja, 
-    .btn-transparente {
-        width: 100%; /* Botões ocupam a largura toda */
-        max-width: 300px;
-        justify-content: center;
-    }
-
-    .hero-detalhes {
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 20px;
-    }
-
-    /* IMAGEM HERO */
-    .hero-imagem {
-        width: 100%;
-        height: 300px;
-        margin-top: 20px;
-    }
-    
-    .hero-imagem img {
-        clip-path: none; /* Remove a curva no celular */
-        border-radius: 20px;
-    }
-
-    /* RODAPÉ */
-    .rodape-vantagens {
-        grid-template-columns: 1fr 1fr;
-        padding: 20px;
-    }
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-/* Para celulares menores */
-@media (max-width: 600px) {
-    .menu a {
-        font-size: 0.8rem;
-        padding: 5px;
-    }
+.modal.ativo {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-conteudo {
+    position: relative;
+    width: 90%;
+    max-width: 900px;
+    background: #000;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    overflow: hidden;
+}
+
+.btn-fechar {
+    position: absolute;
+    top: -45px; 
+    right: 0;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 2.5rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-fechar:hover { color: var(--laranja); }
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; 
+    height: 0;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+}
+
+/* =========================================
+   RESPONSIVIDADE (CELULAR E TABLET)
+   ========================================= */
+@media (max-width: 900px) {
+    .topo { flex-direction: column; padding: 15px; gap: 15px; }
+    .menu { flex-wrap: wrap; justify-content: center; gap: 10px; }
+    .menu a { margin: 0 5px; font-size: 0.9rem; }
+    .acoes-topo { width: 100%; justify-content: center; margin-top: 5px; }
+
+    .hero { flex-direction: column; padding: 30px 20px; text-align: center; }
+    .hero-texto { padding: 0 0 30px 0; }
+    .hero-texto h1 { font-size: 2.8rem; }
     
-    .hero-texto h1 {
-        font-size: 2.2rem;
-    }
+    .hero-botoes { flex-direction: column; align-items: center; width: 100%; gap: 15px; }
+    .btn-laranja, .btn-transparente { width: 100%; max-width: 300px; justify-content: center; }
+    .hero-detalhes { justify-content: center; flex-wrap: wrap; gap: 20px; }
 
-    .hero-texto p {
-        font-size: 1rem;
-    }
+    .hero-imagem { width: 100%; height: 300px; margin-top: 20px; }
+    .hero-imagem img { clip-path: none; border-radius: 20px; }
 
-    .cards-container { 
-        grid-template-columns: 1fr; 
-    }
+    .rodape-vantagens { grid-template-columns: 1fr 1fr; padding: 20px; }
+    .modal-conteudo { width: 95%; }
+    .btn-fechar { top: -40px; font-size: 2rem; }
+}
 
-    .rodape-vantagens { 
-        grid-template-columns: 1fr; /* Vantagens ficam uma embaixo da outra */
-    }
-
-    .vantagem {
-        justify-content: flex-start;
-    }
+@media (max-width: 600px) {
+    .menu a { font-size: 0.8rem; padding: 5px; }
+    .hero-texto h1 { font-size: 2.2rem; }
+    .hero-texto p { font-size: 1rem; }
+    .cards-container { grid-template-columns: 1fr; }
+    .rodape-vantagens { grid-template-columns: 1fr; }
+    .vantagem { justify-content: flex-start; }
 }
