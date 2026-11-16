@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conecta Jovem | Início</title>
-    <!-- Importando a fonte Poppins (igual à do modelo) -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/estilo.css">
 </head>
@@ -50,7 +49,7 @@
             
             <div class="hero-botoes">
                 <a href="#inscricao" class="btn-laranja">Quero me inscrever <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-                <!-- Botão que abre o modal do vídeo -->
+                <!-- BOTÃO DO MODAL (ID: abrir-video) -->
                 <a href="#" id="abrir-video" class="btn-transparente"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> Assistir ao vídeo</a>
             </div>
 
@@ -79,7 +78,6 @@
     <section id="oficinas" class="secao-oficinas">
         <div class="cards-container">
             
-            <!-- Card 1 (Azul) -->
             <article class="card card-azul">
                 <div class="card-img">
                     <img src="img/fundo2.jpg" alt="Programação">
@@ -94,7 +92,6 @@
                 </div>
             </article>
 
-            <!-- Card 2 (Laranja) -->
             <article class="card card-laranja">
                 <div class="card-img">
                     <img src="img/fundo3.jpg" alt="Design Digital">
@@ -109,7 +106,6 @@
                 </div>
             </article>
 
-            <!-- Card 3 (Azul) -->
             <article class="card card-azul">
                 <div class="card-img">
                     <img src="img/fundo4.JPG" alt="Robótica">
@@ -129,46 +125,29 @@
 
     <!-- RODAPÉ -->
     <footer class="rodape-vantagens">
-        <!-- 1. Ambiente Acolhedor (Azul Sólido) -->
         <div class="vantagem">
-            <svg width="35" height="35" viewBox="0 0 24 24" fill="#003c7d">
-                <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
-            </svg>
+            <svg width="35" height="35" viewBox="0 0 24 24" fill="#003c7d"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
             <div>
                 <strong>Ambiente acolhedor</strong>
                 <p>Aqui todo mundo aprende junto.</p>
             </div>
         </div>
-
-        <!-- 2. Profissionais Experientes (Laranja Sólido - Lâmpada) -->
         <div class="vantagem">
-            <svg width="35" height="35" viewBox="0 0 24 24" fill="#f39200">
-                <path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6A4.997 4.997 0 017 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"/>
-            </svg>
+            <svg width="35" height="35" viewBox="0 0 24 24" fill="#f39200"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6A4.997 4.997 0 017 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"/></svg>
             <div>
                 <strong>Profissionais experientes</strong>
                 <p>Orientação com quem vive o mercado.</p>
             </div>
         </div>
-
-        <!-- 3. Projetos Reais (Laranja Sólido - Gráfico de Barras) -->
         <div class="vantagem">
-            <svg width="35" height="35" viewBox="0 0 24 24" fill="#f39200">
-                <rect x="4" y="14" width="4" height="6" rx="1"/>
-                <rect x="10" y="9" width="4" height="11" rx="1"/>
-                <rect x="16" y="4" width="4" height="16" rx="1"/>
-            </svg>
+            <svg width="35" height="35" viewBox="0 0 24 24" fill="#f39200"><rect x="4" y="14" width="4" height="6" rx="1"/><rect x="10" y="9" width="4" height="11" rx="1"/><rect x="16" y="4" width="4" height="16" rx="1"/></svg>
             <div>
                 <strong>Projetos reais</strong>
                 <p>Coloque em prática o que aprende.</p>
             </div>
         </div>
-
-        <!-- 4. Mais Oportunidades (Laranja Sólido - Coração) -->
         <div class="vantagem">
-            <svg width="35" height="35" viewBox="0 0 24 24" fill="#f39200">
-                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-            </svg>
+            <svg width="35" height="35" viewBox="0 0 24 24" fill="#f39200"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
             <div>
                 <strong>Mais oportunidades</strong>
                 <p>Conheça novas possibilidades para seu futuro.</p>
@@ -177,19 +156,18 @@
     </footer>
 
     <!-- ========================================= -->
-    <!-- MODAL DE VÍDEO                            -->
+    <!-- MODAL DE VÍDEO (AQUI ESTÁ A JANELA)       -->
     <!-- ========================================= -->
     <div id="modal-video" class="modal">
         <div class="modal-conteudo">
             <button id="fechar-video" class="btn-fechar" aria-label="Fechar vídeo">&times;</button>
             <div class="video-container">
-                <!-- O link do vídeo é injetado via JavaScript -->
                 <iframe id="video-youtube" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
     </div>
 
-    <!-- Script principal (menu, ano, scroll, validação, busca, MODAL) -->
+    <!-- SCRIPT -->
     <script src="js/script.js"></script>
 </body>
 </html>
