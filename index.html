@@ -1,229 +1,195 @@
 <!DOCTYPE html>
-<!--
-  =====================================================================
-  ARQUIVO: index.html
-  PROJETO: Conecta Jovem
-  FUNÇÃO: Página inicial da plataforma. Apresenta o projeto ao usuário,
-          mostra as oficinas disponíveis, dicas de emprego e um
-          formulário para o jovem receber novidades por e-mail.
-  =====================================================================
--->
-
 <html lang="pt-BR">
 <head>
-    <!-- ============================================================
-         BLOCO <head>
-         Contém informações que NÃO aparecem no corpo da página:
-         codificação de caracteres, configurações de viewport,
-         título da aba, descrição para mecanismos de busca e
-         o link para a folha de estilos CSS.
-         ============================================================ -->
-
-    <!-- Define a codificação UTF-8: permite acentos e cedilha (á, ç, ã...) -->
     <meta charset="UTF-8">
-
-    <!-- Faz a página se adaptar ao tamanho da tela do celular/tablet -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Descrição usada por buscadores (SEO) ao listar o site -->
-    <meta name="description" content="Conecta Jovem: plataforma que conecta jovens a oportunidades de emprego, cursos, oficinas e projetos sociais.">
-
-    <!-- Título exibido na ABA do navegador -->
     <title>Conecta Jovem | Início</title>
-
-    <!-- Importa o arquivo de estilo externo (mantém o HTML "limpo") -->
+    <!-- Importando a fonte Poppins (igual à do modelo) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/estilo.css">
 </head>
-
 <body>
 
-    <!-- ============================================================
-         LINK DE ACESSIBILIDADE
-         Permite que usuários de leitor de tela "pulem" o menu e
-         vão direto ao conteúdo. Fica escondido até receber foco (Tab).
-         ============================================================ -->
-    <a href="#conteudo" class="pular-link">Pular para o conteúdo</a>
-
-
-    <!-- ============================================================
-         CABEÇALHO (<header>)
-         Contém a logo clicável + botão hamburguer (mobile) + menu
-         de navegação principal. O menu é o mesmo em todas as páginas.
-         ============================================================ -->
-    <header class="cabecalho">
-
-        <!-- Logo em texto: "Conecta" (branco) + "Jovem" (laranja via CSS) -->
-        <a href="index.html" class="logo" aria-label="Conecta Jovem - Página inicial">
-            Conecta <span>Jovem</span>
-        </a>
-
-        <!-- Botão hamburguer: só aparece em telas pequenas (via CSS).
-             aria-expanded informa ao leitor de tela se o menu está aberto. -->
-        <button
-            class="menu-toggle"
-            aria-label="Abrir menu"
-            aria-expanded="false"
-            aria-controls="menu">
-            ☰
-        </button>
-
-        <!-- Menu de navegação principal -->
-        <nav class="menu" id="menu" aria-label="Menu principal">
-            <ul>
-                <!-- A classe "ativo" marca a página atual -->
-                <li><a href="index.html" class="ativo">Início</a></li>
-                <li><a href="oportunidades.html">Oportunidades</a></li>
-                <li><a href="#oficinas">Oficinas</a></li>
-                <li><a href="#dicas">Dicas</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
+    <!-- CABEÇALHO -->
+    <header class="topo">
+        <div class="logo">
+            <svg viewBox="0 0 24 24" width="35" height="35" stroke="#f39200" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+            <div class="logo-texto">
+                <span class="branco">Conecta</span>
+                <span class="laranja">Jovem</span>
+            </div>
+        </div>
+        
+        <nav class="menu">
+            <a href="#" class="ativo">Início</a>
+            <a href="#oficinas">Oficinas</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#inscricao">Inscrição</a>
+            <a href="#contato">Contato</a>
         </nav>
+
+        <div class="acoes-topo">
+            <svg class="icone-busca" viewBox="0 0 24 24" width="20" height="20" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <a href="#inscricao" class="btn-laranja">Faça parte</a>
+        </div>
     </header>
 
-
-    <!-- ============================================================
-         CONTEÚDO PRINCIPAL (<main>)
-         Tudo o que é específico desta página fica aqui dentro.
-         ============================================================ -->
-    <main id="conteudo">
-
-        <!-- ---------- SEÇÃO HERO (boas-vindas) ---------- -->
-        <section class="hero">
-            <h1>Conecta Jovem</h1>
-            <p class="subtitulo">Conectando jovens a oportunidades que transformam vidas.</p>
-
-            <p>
-                Encontre <strong>oficinas gratuitas</strong>, cursos, vagas de primeiro emprego
-                e projetos sociais para impulsionar seu futuro.
-            </p>
-
-            <!-- Frase de destaque usando <em> (ênfase semântica) -->
-            <p><em>Seu futuro começa com uma oportunidade!</em></p>
-
-            <!-- Botão de chamada para ação: leva à página de oportunidades -->
-            <a href="oportunidades.html" class="botao">Ver oportunidades</a>
-        </section>
-
-
-        <!-- ---------- SEÇÃO OFICINAS ---------- -->
-        <section id="oficinas">
-            <h2>Oficinas disponíveis</h2>
-
-            <!--
-              A classe "cards" (CSS) organiza os <article> em grade
-              responsiva. Cada article é uma oficina independente.
-            -->
-            <div class="cards">
-
-                <article class="card">
-                    <h3>Programação</h3>
-                    <p>Aprenda HTML, CSS e JavaScript criando seus primeiros projetos web.</p>
-                </article>
-
-                <article class="card">
-                    <h3>Design</h3>
-                    <p>Explore cores, tipografia e layout para criar interfaces bonitas.</p>
-                </article>
-
-                <article class="card">
-                    <h3>Robótica</h3>
-                    <p>Monte robôs, programe sensores e descubra a tecnologia na prática.</p>
-                </article>
-
+    <!-- SEÇÃO HERO -->
+    <section class="hero">
+        <div class="hero-texto">
+            <h1>Seu futuro <br><span class="laranja">começa aqui</span></h1>
+            <p>Oficinas de tecnologia para aprender,<br>criar e transformar o seu mundo.</p>
+            
+            <div class="hero-botoes">
+                <a href="#inscricao" class="btn-laranja">Quero me inscrever <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                <!-- Botão que abre o modal do vídeo -->
+                <a href="#" id="abrir-video" class="btn-transparente"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> Assistir ao vídeo</a>
             </div>
-        </section>
 
+            <div class="hero-detalhes">
+                <span>
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#003c7d" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    Aprendizado <br>na prática
+                </span>
+                <span>
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#003c7d" stroke-width="2"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
+                    Novas <br>oportunidades
+                </span>
+                <span>
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#003c7d" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    Certificado <br>de participação
+                </span>
+            </div>
+        </div>
 
-        <!-- ---------- IMAGEM ILUSTRATIVA ----------
-             <figure> agrupa a imagem com sua legenda (<figcaption>).
-             O atributo alt descreve a imagem para leitores de tela. -->
-        <figure class="imagem-destaque">
-            <img src="img/images.jpg" alt="Computador preparado para uma oficina de programação web">
-            <figcaption>Oficina de programação web no Conecta Jovem</figcaption>
-        </figure>
+        <div class="hero-imagem">
+            <img src="img/fundo1.jpg" alt="Jovens sorrindo com um notebook">
+        </div>
+    </section>
 
-
-        <!-- ---------- SEÇÃO DICAS ---------- -->
-        <section id="dicas">
-            <h2>Dicas para conquistar seu primeiro emprego</h2>
-
-            <article>
-                <h3>Como elaborar um currículo</h3>
-                <p>Seja objetivo: dados pessoais, objetivos, escolaridade e cursos. Sem experiência? Destaque sua vontade de aprender.</p>
+    <!-- SEÇÃO DE CARDS -->
+    <section id="oficinas" class="secao-oficinas">
+        <div class="cards-container">
+            
+            <!-- Card 1 (Azul) -->
+            <article class="card card-azul">
+                <div class="card-img">
+                    <img src="img/fundo2.jpg" alt="Programação">
+                </div>
+                <div class="icone-circulo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                </div>
+                <div class="card-info">
+                    <h3>Programação Web</h3>
+                    <p>Aprenda a criar sites, aplicações e tire suas ideias do papel.</p>
+                    <a href="#inscricao" class="btn-card">Quero participar <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
             </article>
 
-            <article>
-                <h3>Como se comportar em uma entrevista</h3>
-                <p>Chegue no horário, seja educado, olhe nos olhos e mostre interesse pela vaga.</p>
+            <!-- Card 2 (Laranja) -->
+            <article class="card card-laranja">
+                <div class="card-img">
+                    <img src="img/fundo3.jpg" alt="Design Digital">
+                </div>
+                <div class="icone-circulo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+                </div>
+                <div class="card-info">
+                    <h3>Design Digital</h3>
+                    <p>Explore sua criatividade e desenvolva projetos incríveis.</p>
+                    <a href="#inscricao" class="btn-card">Quero participar <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
             </article>
 
-            <article>
-                <h3>A importância da pontualidade</h3>
-                <p>Chegar no horário demonstra responsabilidade. Saia de casa com antecedência.</p>
+            <!-- Card 3 (Azul) -->
+            <article class="card card-azul">
+                <div class="card-img">
+                    <img src="img/fundo4.JPG" alt="Robótica">
+                </div>
+                <div class="icone-circulo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                </div>
+                <div class="card-info">
+                    <h3>Robótica</h3>
+                    <p>Construa, programe e descubra como a tecnologia move o mundo.</p>
+                    <a href="#inscricao" class="btn-card">Quero participar <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
             </article>
-        </section>
 
+        </div>
+    </section>
 
-        <!-- ---------- SEÇÃO CONTATO / NEWSLETTER ----------
-             O atributo "novalidate" desativa a validação automática do
-             navegador. Assim o JavaScript pode mostrar mensagens
-             personalizadas com o estilo do site. -->
-        <section id="contato" class="contato">
-            <h2>Receba novidades</h2>
-            <p>Cadastre seu e-mail e receba novas oportunidades em primeira mão.</p>
+    <!-- RODAPÉ -->
+    <footer class="rodape-vantagens">
+        <!-- 1. Ambiente Acolhedor (Azul Sólido) -->
+        <div class="vantagem">
+            <svg width="35" height="35" viewBox="0 0 24 24" fill="#003c7d">
+                <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+            </svg>
+            <div>
+                <strong>Ambiente acolhedor</strong>
+                <p>Aqui todo mundo aprende junto.</p>
+            </div>
+        </div>
 
-            <form id="form-newsletter" novalidate>
-                <!-- Label vinculado ao input pelo "for"/"id" (acessibilidade) -->
-                <label for="email">Seu e-mail</label>
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="voce@email.com"
-                    required>
+        <!-- 2. Profissionais Experientes (Laranja Sólido - Lâmpada) -->
+        <div class="vantagem">
+            <svg width="35" height="35" viewBox="0 0 24 24" fill="#f39200">
+                <path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6A4.997 4.997 0 017 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"/>
+            </svg>
+            <div>
+                <strong>Profissionais experientes</strong>
+                <p>Orientação com quem vive o mercado.</p>
+            </div>
+        </div>
 
-                <button type="submit" class="botao">Quero receber</button>
+        <!-- 3. Projetos Reais (Laranja Sólido - Gráfico de Barras) -->
+        <div class="vantagem">
+            <svg width="35" height="35" viewBox="0 0 24 24" fill="#f39200">
+                <rect x="4" y="14" width="4" height="6" rx="1"/>
+                <rect x="10" y="9" width="4" height="11" rx="1"/>
+                <rect x="16" y="4" width="4" height="16" rx="1"/>
+            </svg>
+            <div>
+                <strong>Projetos reais</strong>
+                <p>Coloque em prática o que aprende.</p>
+            </div>
+        </div>
 
-                <!--
-                  Parágrafo vazio usado pelo JavaScript para mostrar
-                  mensagens de erro ou sucesso.
-                  role="status" e aria-live="polite" avisam o leitor
-                  de tela quando o texto muda.
-                -->
-                <p class="mensagem" role="status" aria-live="polite"></p>
-            </form>
-        </section>
-
-    </main>
-
-
-    <!-- ============================================================
-         RODAPÉ (<footer>)
-         Informações de copyright e links úteis.
-         O ano é preenchido automaticamente pelo JavaScript.
-         ============================================================ -->
-    <footer class="rodape">
-        <p>© <span id="ano"></span> Conecta Jovem — Projeto educacional.</p>
-        <p>
-            <a href="https://www.senac.br" target="_blank" rel="noopener">Senac</a> ·
-            <a href="oportunidades.html">Oportunidades</a>
-        </p>
+        <!-- 4. Mais Oportunidades (Laranja Sólido - Coração) -->
+        <div class="vantagem">
+            <svg width="35" height="35" viewBox="0 0 24 24" fill="#f39200">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+            <div>
+                <strong>Mais oportunidades</strong>
+                <p>Conheça novas possibilidades para seu futuro.</p>
+            </div>
+        </div>
     </footer>
 
+    <!-- ========================================= -->
+    <!-- MODAL DE VÍDEO                            -->
+    <!-- ========================================= -->
+    <div id="modal-video" class="modal">
+        <div class="modal-conteudo">
+            <button id="fechar-video" class="btn-fechar" aria-label="Fechar vídeo">&times;</button>
+            <div class="video-container">
+                <!-- O link do vídeo é injetado via JavaScript -->
+                <iframe id="video-youtube" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
 
-    <!-- ============================================================
-         BOTÃO "VOLTAR AO TOPO"
-         Fica invisível até o usuário rolar a página (controlado via JS).
-         ============================================================ -->
-    <button id="voltar-topo" class="voltar-topo" aria-label="Voltar ao topo">↑</button>
-
-
-    <!-- ============================================================
-         SCRIPT PRINCIPAL
-         Colocado no fim do <body> para garantir que todo o HTML
-         já tenha sido carregado antes do JavaScript rodar.
-         ============================================================ -->
+    <!-- Script principal (menu, ano, scroll, validação, busca, MODAL) -->
     <script src="js/script.js"></script>
-
 </body>
 </html>
