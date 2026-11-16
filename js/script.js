@@ -150,3 +150,49 @@ if (busca) {
         });
     });
 }
+
+/* =========================================
+   FUNCIONALIDADE DO VÍDEO (MODAL YOUTUBE)
+   ========================================= */
+document.addEventListener('DOMContentLoaded', () => {
+    const btnAbrir = document.getElementById('abrir-video');
+    const modal = document.getElementById('modal-video');
+    const btnFechar = document.getElementById('fechar-video');
+    const iframe = document.getElementById('video-youtube');
+
+    // O link convertido para formato "embed" para tocar dentro do site
+    // O "autoplay=1" faz o vídeo tocar sozinho ao abrir
+    const videoURL = "https://www.youtube.com/embed/naUTmMmS6gk?start=01&autoplay=1";
+
+    if (btnAbrir && modal) {
+        // Abrir o vídeo
+        btnAbrir.addEventListener('click', (e) => {
+            e.preventDefault(); // Impede a página de subir para o topo
+            iframe.src = videoURL; // Coloca o link no iframe
+            modal.classList.add('ativo'); // Mostra o modal
+        });
+
+        // Função para fechar o vídeo
+        const fecharModal = () => {
+            modal.classList.remove('ativo'); // Esconde o modal
+            iframe.src = ""; // Limpa o link, fazendo o vídeo parar de tocar
+        };
+
+        // Fechar no botão X
+        btnFechar.addEventListener('click', fecharModal);
+
+        // Fechar ao clicar no fundo escuro (fora do vídeo)
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                fecharModal();
+            }
+        });
+
+        // Fechar ao apertar a tecla ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('ativo')) {
+                fecharModal();
+            }
+        });
+    }
+});
